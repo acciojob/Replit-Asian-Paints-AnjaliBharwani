@@ -1,28 +1,23 @@
-// //your JS code here. If required.
-// //your JS code here. If required.
-// function changeColor() {
-//             var blockId = document.getElementById("block_id").value;
-//             var colorId = document.getElementById("colour_id").value;
-//             var blockElement = document.getElementById(blockId);
+//your JS code here. If required.
+// Write your script here
 
-//             if (blockElement) {
-//                 // Set all grid items' background to transparent
-//                 var gridItems = document.querySelectorAll(".grid-item");
-//                 gridItems.forEach(function(item) {
-//                     item.style.backgroundColor = "transparent";
-//                 });
+document.querySelector("#change_button").addEventListener("click", () => {
+  const blockInput = document.querySelector("#block_id").value;
+  const colorInput = document.querySelector("#colour_id").value;
 
-//                 // Change the background color of the selected grid item
-//                 blockElement.style.backgroundColor = colorId;
-//             } else {
-//                 alert("Invalid Block ID");
-//             }
-//         }
+  document
+    .querySelectorAll(".grid-item")
+    .forEach((e) => (e.style.backgroundColor = "transparent"));
 
-//         function resetColors() {
-//             // Set all grid items' background to transparent
-//             var gridItems = document.querySelectorAll(".grid-item");
-//             gridItems.forEach(function(item) {
-//                 item.style.backgroundColor = "transparent";
-//             });
-//         }
+  const selectedGrid = document.getElementById(blockInput);
+  if (selectedGrid) {
+    selectedGrid.style.backgroundColor = colorInput;
+    selectedGrid.style.transition = "all 0.5s ease-in-out";
+  }
+});
+
+document.querySelector("#reset_button").addEventListener("click", () => {
+  document
+    .querySelectorAll(".grid-item")
+    .forEach((e) => (e.style.backgroundColor = "transparent"));
+});
